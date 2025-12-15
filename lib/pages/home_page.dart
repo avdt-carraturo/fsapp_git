@@ -110,8 +110,8 @@ class _HomePageState extends State<HomePage> {
 
                   //Bottone 1
                   _AlertButton(
-                    title: 'Emergenza Silenziosa',
-                    subtitle: 'Aggressione o minaccia',
+                    title: 'Aggressione',
+                    subtitle: 'Segnala una minaccia verbale o fisica',
                     icon: Icons.warning_amber,
                     color: Colors.red,
                     serial: treno,
@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                   //Bottone 2
                   _AlertButton(
                     title: 'Emergenza Medica',
-                    subtitle: 'Malore o pronto soccorso',
+                    subtitle: 'Segnala e avvia una chiamata 112',
                     icon: Icons.favorite,
                     color: Colors.pink,
                     serial: treno,
@@ -134,8 +134,8 @@ class _HomePageState extends State<HomePage> {
 
                   //Bottone 3
                   _AlertButton(
-                    title: 'Molestia Personale',
-                    subtitle: 'Comportamenti inappropriati',
+                    title: 'Molestia',
+                    subtitle: 'Segnala una molestia sessuale vissuta o testimoniata',
                     icon: Icons.people,
                     color: Colors.orange,
                     serial: treno,
@@ -150,6 +150,18 @@ class _HomePageState extends State<HomePage> {
                     subtitle: 'Borseggi o furti',
                     icon: Icons.lock,
                     color: Colors.blueGrey,
+                    serial: treno,
+                    carriage: carrozza,
+                    validator: _canOpen,
+                    currentUser: widget.currentUser,
+                  ),
+
+                  //Bottone 5 - NUOVO
+                  _AlertButton(
+                    title: 'Comportamento intemperante',
+                    subtitle: 'Segnala persona in stato psicofisico alterato',
+                    icon: Icons.report_problem,
+                    color: Colors.amber.shade700,
                     serial: treno,
                     carriage: carrozza,
                     validator: _canOpen,
@@ -236,15 +248,21 @@ class _AlertButton extends StatelessWidget {
                       apertaDa: currentUser);
                     segnalazioneService.createSegnalazione(segnalazione);
 
+                    String testoPriorita = "";
+                    if (["Aggressione", "Emergenza Medica", "Molestia"].contains(title)) {
+                      testoPriorita = " Al tuo alert è stata applicata una priorità di primo livello.";
+                    }
+
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
+                        backgroundColor: Colors.green.shade700,
                         content: RichText(
                           text: TextSpan(
-                            style: const TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white, fontSize: 16),
                             children: [
                               const TextSpan(
                                   text:
-                                      "Segnalazione inviata. Per visualizzarla premi "),
+                                      "Il tuo alert è stato inoltrato alle Security Control Room, che si metteranno in contatto con il personale di bordo e di stazione.$testoPriorita Gli operatori saranno alla tua posizione per darti supporto entro 5 minuti.\n\nPer visualizzarla premi "),
                               TextSpan(
                                 text: "QUI",
                                 style: const TextStyle(
