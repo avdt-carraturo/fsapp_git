@@ -8,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
 import 'dart:convert';
+import 'package:fsapp/widgets/app_logo.dart';
 
 class HomePage extends StatefulWidget {
   final String? serial;
@@ -83,7 +84,11 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: [
                   const SizedBox(height: 16),
-                  Container(
+                  /* Image.asset(
+                  'packages/fsapp_shared/assets/app_logo_dark.png',
+                  fit: BoxFit.contain,
+                ) */ AppLogo(width: MediaQuery.of(context).size.width * 0.3),
+                  /* Container(
                     width: 110,
                     height: 110,
                     decoration: BoxDecoration(
@@ -101,12 +106,12 @@ class _HomePageState extends State<HomePage> {
                       child: Icon(Icons.train,
                           size: 50, color: Color(0xFFD6001C)),
                     ),
-                  ),
-                  const SizedBox(height: 12),
-                  const Text(
+                  ), */
+                  /*const SizedBox(height: 12),
+                   const Text(
                     'Travel with Security',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
+                  ), */
                   const SizedBox(height: 4),
                   const Text(
                     'Ti senti in pericolo? Hai bisogno di assistenza?',
@@ -366,17 +371,13 @@ class _AlertButtonState extends State<_AlertButton> {
               ),
               const SizedBox(height: 16),
               const Text(
-                "L'apertura di una segnalazione fasulla è un reato.",
+                "Ti ricordiamo che l’attivazione indebita di qualsiasi Alert verrà sanzionata a norma del D.P.R 753\80.\nUna volta confermato, il tuo Alert sarà ricevuto dalle Security Control Room di Fs Security che attiveranno tutti i protocolli necessari.",
                 style: TextStyle(fontSize: 12, color: Colors.red),
               ),
             ],
           ),
         ),
         actions: [
-          /* TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text("Annulla"),
-          ), */
           ConfirmButtons(
             onConfirm: () {
               Navigator.pop(context);
@@ -406,7 +407,12 @@ class _AlertButtonState extends State<_AlertButton> {
       // Usa XFile.readAsBytes() con await
       final fileBytes = await mediaFile!.readAsBytes();
       if (fileBytes.isNotEmpty) {
-        mediaB64 = base64Encode(fileBytes);
+        final mediaUrlAfterBlur = await segnalazioneService.blurMedia(
+        fileBytes,
+        originalFilename: mediaFile!.name,
+      );
+        /* mediaB64 = base64Encode(fileBytes); */
+        mediaB64 = base64Encode(mediaUrlAfterBlur);
         mediaFileName = mediaFile?.name ?? 'allegato_${id}.bin';
 
       } else {
@@ -417,6 +423,7 @@ class _AlertButtonState extends State<_AlertButton> {
     }
   }
 
+
   final segnalazione = Segnalazione(
     idNotifica: id,
     tipo: widget.title,
@@ -426,6 +433,7 @@ class _AlertButtonState extends State<_AlertButton> {
           nCarrozze: "0",
           dataOraPartenza: "MAI",
           dataOraArrivo: "MAI",
+          stazioni: ["Stazione1", "Stazione2", "Stazione3"]
         ),
     carrozza: _carrozzaCtrl.text,
     dataOraApertura: DateTime.now().toString().substring(0, 16),

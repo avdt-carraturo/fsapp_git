@@ -87,7 +87,12 @@ class ScanResultDialog {
                           final segnalazione = Segnalazione(
                             idNotifica: id, 
                             tipo: selectedTipo!, 
-                            treno: trenoAsObj ?? Treno(codice: "FALLBACK_NO_TRAIN_FOUND", nCarrozze: "0", dataOraPartenza: "MAI", dataOraArrivo: "MAI"), 
+                            treno: trenoAsObj ?? Treno(
+                              codice: "FALLBACK_NO_TRAIN_FOUND", 
+                              nCarrozze: "0", 
+                              dataOraPartenza: "MAI", 
+                              dataOraArrivo: "MAI",
+                              stazioni: ["Stazione1", "Stazione2", "Stazione3"]), 
                             carrozza: carriage!, 
                             dataOraApertura: DateTime.now().toString().substring(0, 16), 
                             stato: 'APERTA', 

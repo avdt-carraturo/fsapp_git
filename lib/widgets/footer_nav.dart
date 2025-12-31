@@ -18,7 +18,7 @@ class FooterNav extends StatelessWidget {
         BottomNavigationBarItem(icon: Icon(Icons.shield), label: 'Security'),
         BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Mappa'),
         BottomNavigationBarItem(icon: Icon(Icons.notifications), label: 'Notifiche'),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Registrati'),
+        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Area Personale'),
       ],
     );
   }
