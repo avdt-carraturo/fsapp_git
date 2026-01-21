@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.fsapp">
+    package="com.travelwithsecurity.fsapp">
 
     <application
-        android:label="MyApp"
+        android:label="Travel with Security"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 		<meta-data

@@ -1,4 +1,4 @@
-package com.example.fsapp
+package com.travelwithsecurity.fsapp
 
 import io.flutter.embedding.android.FlutterActivity
 

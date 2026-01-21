@@ -63,7 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1029128518658',
     projectId: 'fsapp-232b7',
     storageBucket: 'fsapp-232b7.firebasestorage.app',
-    iosBundleId: 'com.example.fsapp',
+    iosBundleId: 'com.travelwithsecurity.fsapp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -72,7 +72,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1029128518658',
     projectId: 'fsapp-232b7',
     storageBucket: 'fsapp-232b7.firebasestorage.app',
-    iosBundleId: 'com.example.fsapp',
+    iosBundleId: 'com.travelwithsecurity.fsapp',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
