@@ -371,7 +371,7 @@ class _AlertButtonState extends State<_AlertButton> {
               ),
               const SizedBox(height: 16),
               const Text(
-                "Ti ricordiamo che l’attivazione indebita di qualsiasi Alert verrà sanzionata a norma del D.P.R 753\80.\nUna volta confermato, il tuo Alert sarà ricevuto dalle Security Control Room di Fs Security che attiveranno tutti i protocolli necessari.",
+                "Ti ricordiamo che l’attivazione indebita di qualsiasi Alert verrà sanzionata a norma del D.P.R 753/80.\nUna volta confermato, il tuo Alert sarà ricevuto dalle Security Control Room di Fs Security che attiveranno tutti i protocolli necessari.",
                 style: TextStyle(fontSize: 12, color: Colors.red),
               ),
             ],
