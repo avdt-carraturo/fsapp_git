@@ -77,6 +77,42 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029128518658:android:2ffe1a36ef79b0a1ed3b1b",
+        "android_client_info": {
+          "package_name": "com.travelwithsecurity.fsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029128518658-unthlkpd9prb77ao2sic1kck2qu96ai5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRz_8WRwEZ_OYhcDh5p93aewS5vDX7h2k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029128518658-unthlkpd9prb77ao2sic1kck2qu96ai5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1029128518658-1nhiclg828knboquo9csfl8vv1e2dgpc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fsapp"
+              }
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"
